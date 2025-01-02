@@ -19,7 +19,8 @@
                         
                         // 將參數附加到 URL 中
                         // console.log("獲取安裝參數：", m.getInstallParams());
-                        var params = m.getInstallParams();
+                        var params = m.someOtherMethodToGetParams?.();
+                        // var params = m.getInstallParams();
                         if (params) {
                             var query = Object.keys(params)
                                 .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
