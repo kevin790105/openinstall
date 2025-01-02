@@ -14,13 +14,12 @@
                     appKey: "nxvw11", // 替換為你的 Open Install App Key
                     onready: function() {
                         // 保留 Open Install 參數並跳轉到 App Store
-                        // var m = this;
+                        var m = this;
                         var targetUrl = "https://apps.apple.com/in/app/claw-food/id6739670130";
-                        console.log('tt')
                         
                         // 將參數附加到 URL 中
-                        console.log("獲取安裝參數：", this.getInstallParams());
-                        var params = this.getInstallParams();
+                        console.log("獲取安裝參數：", m.getInstallParams());
+                        var params = m.getInstallParams();
                         if (params) {
                             var query = Object.keys(params)
                                 .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
