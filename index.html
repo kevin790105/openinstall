@@ -11,15 +11,15 @@
             script.src = "https://static.openinstall.io/openinstall.js";
             script.onload = function() {
                 new OpenInstall({
-                    appKey: "nxvw11", // 替換為你的 Open Install App Key
+                    appKey: "nxvw11",
                     onready: function() {
-                        // 保留 Open Install 參數並跳轉到 App Store
                         var m = this;
-                        var targetUrl = "https://apps.apple.com/in/app/claw-food/id6739670130";
+                        console.log("Inspecting OpenInstall instance:", m);
                         
-                        // 將參數附加到 URL 中
-                        console.log("獲取安裝參數：", m.getInstallParams());
-                        var params = m.getInstallParams();
+                        // Use a valid method to fetch parameters
+                        var params = m.someOtherMethodToGetParams?.(); // Hypothetical replacement method
+                        var targetUrl = "https://apps.apple.com/in/app/claw-food/id6739670130";
+
                         if (params) {
                             var query = Object.keys(params)
                                 .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
@@ -27,10 +27,10 @@
                             targetUrl += (targetUrl.includes('?') ? '&' : '?') + query;
                         }
 
-                        // 跳轉
                         window.location.href = targetUrl;
                     }
                 });
+
             };
             document.head.appendChild(script);
         })();
